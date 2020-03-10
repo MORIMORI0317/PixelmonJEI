@@ -1,0 +1,12 @@
+[
+{
+  "modid": "pixelmonjei",
+  "name": "Pixelmon Jei",
+  "description": "The Pixelmon Jei mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "authorList": ["MORIMORI0317"],
+  "screenshots": [],
+  "dependencies": []
+}
+]
