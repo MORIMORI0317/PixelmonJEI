@@ -1,2 +1,10 @@
 
 gui.jei.category.pixelmon.drop=ポケモンのドロップ
+gui.jei.maindrop=メインドロップ
+gui.jei.raredrop=レアドロップ
+gui.jei.opt1drop=追加ドロップ1
+gui.jei.opt2drop=追加ドロップ2
+gui.jei.nodrop=ドロップ無し
+gui.jei.mindrop=最小 %s
+gui.jei.maxdrop=最大 %s
+

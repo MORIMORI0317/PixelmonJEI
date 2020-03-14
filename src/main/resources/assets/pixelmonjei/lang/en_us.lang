@@ -1,1 +1,8 @@
 gui.jei.category.pixelmon.drop=Pokemon Drop
+gui.jei.maindrop=Main Drop
+gui.jei.raredrop=Rare Drop
+gui.jei.opt1drop=Option Drop 1
+gui.jei.opt2drop=Option Drop 2
+gui.jei.nodrop=No Drop
+gui.jei.mindrop=Min %s
+gui.jei.maxdrop=Max %s

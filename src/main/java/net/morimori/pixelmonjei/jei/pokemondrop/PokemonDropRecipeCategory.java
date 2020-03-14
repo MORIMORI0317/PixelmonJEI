@@ -21,7 +21,7 @@ public class PokemonDropRecipeCategory implements IRecipeCategory<PokemonDropRec
 	public PokemonDropRecipeCategory(IGuiHelper guiHelper) {
 
 		ResourceLocation backgroundTexture = new ResourceLocation("pixelmonjei", "textures/gui/gui_pixelmon.png");
-		background = guiHelper.drawableBuilder(backgroundTexture, 0, 54, 208, 144)
+		background = guiHelper.drawableBuilder(backgroundTexture, 0, 54, 208, 129)
 				.build();
 		ResourceLocation iconTexture = new ResourceLocation("pixelmonjei", "textures/gui/pokemon_drop_icon.png");
 		icon = guiHelper.drawableBuilder(iconTexture, 0, 0, 16, 16)
@@ -63,10 +63,14 @@ public class PokemonDropRecipeCategory implements IRecipeCategory<PokemonDropRec
 	public void setRecipe(IRecipeLayout recipeLayout, PokemonDropRecipe recipeWrapper, IIngredients ingredients) {
 		IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
 
-		for (int i = 0; i < 24; i++) {
-			guiItemStacks.init(i, false, (int) ((10 + (18 * i)) - (18 * Math.floor(i / 6) * 6)),
-					(int) (35 + (18 * Math.floor(i / 6))));
-		}
+		guiItemStacks.init(1, false, 10, 33);
+
+		guiItemStacks.init(2, false, 10, 54);
+
+		guiItemStacks.init(3, false, 10, 75);
+
+		guiItemStacks.init(4, false, 10, 96);
+
 		guiItemStacks.set(ingredients);
 	}
 
