@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import com.pixelmonmod.pixelmon.client.gui.machines.mechanicalanvil.GuiMechanicalAnvil;
 import com.pixelmonmod.pixelmon.config.PixelmonBlocks;
+import com.pixelmonmod.pixelmon.enums.EnumPokemon;
 import com.pixelmonmod.pixelmon.items.ItemHammer;
 
 import mezz.jei.Internal;
@@ -11,16 +12,21 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.ingredients.IIngredientRegistry;
+import mezz.jei.api.ingredients.IModIngredientRegistration;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import mezz.jei.gui.GuiHelper;
 import mezz.jei.runtime.JeiHelpers;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.morimori.pixelmonjei.jei.pokeanvil.PokeAnvilRecipeCategory;
-import net.morimori.pixelmonjei.jei.pokeanvil.PokeAnvilRecipeMaker;
-import net.morimori.pixelmonjei.jei.pokemondrop.PokemonDropRecipeCategory;
-import net.morimori.pixelmonjei.jei.pokemondrop.PokemonDropRecipeMaker;
+import net.morimori.pixelmonjei.jei.ingredient.PixelmonTypes;
+import net.morimori.pixelmonjei.jei.ingredient.PokemonIngredientHelper;
+import net.morimori.pixelmonjei.jei.ingredient.PokemonIngredientRender;
+import net.morimori.pixelmonjei.jei.recipe.pokeanvil.PokeAnvilRecipeCategory;
+import net.morimori.pixelmonjei.jei.recipe.pokeanvil.PokeAnvilRecipeMaker;
+import net.morimori.pixelmonjei.jei.recipe.pokemondrop.PokemonDropRecipeCategory;
+import net.morimori.pixelmonjei.jei.recipe.pokemondrop.PokemonDropRecipeMaker;
+import scala.actors.threadpool.Arrays;
 
 @JEIPlugin
 public class PixelmonJeiPlugin implements IModPlugin {
@@ -61,6 +67,13 @@ public class PixelmonJeiPlugin implements IModPlugin {
 
 		registry.addRecipeCategories(
 				new PokemonDropRecipeCategory(guiHelper));
+	}
+
+	@Override
+	public void registerIngredients(IModIngredientRegistration registry) {
+		registry.register(PixelmonTypes.POKEMON, Arrays.asList(EnumPokemon.values()), new PokemonIngredientHelper(),
+				new PokemonIngredientRender());
+
 	}
 
 }

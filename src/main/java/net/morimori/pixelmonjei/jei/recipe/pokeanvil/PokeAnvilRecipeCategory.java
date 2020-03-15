@@ -1,4 +1,4 @@
-package net.morimori.pixelmonjei.jei.pokeanvil;
+package net.morimori.pixelmonjei.jei.recipe.pokeanvil;
 
 import com.pixelmonmod.pixelmon.config.PixelmonBlocks;
 

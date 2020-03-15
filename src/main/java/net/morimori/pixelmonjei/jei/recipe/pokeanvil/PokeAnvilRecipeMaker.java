@@ -1,4 +1,4 @@
-package net.morimori.pixelmonjei.jei.pokeanvil;
+package net.morimori.pixelmonjei.jei.recipe.pokeanvil;
 
 import java.util.ArrayList;
 import java.util.List;

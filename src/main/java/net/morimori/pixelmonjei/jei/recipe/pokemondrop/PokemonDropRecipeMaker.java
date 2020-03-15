@@ -1,4 +1,4 @@
-package net.morimori.pixelmonjei.jei.pokemondrop;
+package net.morimori.pixelmonjei.jei.recipe.pokemondrop;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,8 +32,14 @@ public class PokemonDropRecipeMaker {
 
 				PokemonDropInformation pif = pifl.get(po);
 
-				recipes.add(new PokemonDropRecipe(po.name, getDropItem(pif, "mainDrop"), getDropItem(pif, "rareDrop"),
-						getDropItem(pif, "optDrop1"), getDropItem(pif, "optDrop2")));
+				recipes.add(new PokemonDropRecipe(po.name,
+						getDropItem(pif, "mainDrop"), getDropItem(pif, "rareDrop"),
+						getDropItem(pif, "optDrop1"), getDropItem(pif, "optDrop2"),
+						getDropItemMin(pif, "mainDrop"), getDropItemMax(pif, "mainDrop"),
+						getDropItemMin(pif, "rareDrop"), getDropItemMax(pif, "rareDrop"),
+						getDropItemMin(pif, "optDrop1"), getDropItemMax(pif, "optDrop1"),
+						getDropItemMin(pif, "optDrop2"), getDropItemMax(pif, "optDrop2")));
+
 			} catch (Exception e) {
 
 			}
@@ -47,12 +53,29 @@ public class PokemonDropRecipeMaker {
 		try {
 			ItemStack stack = ObfuscationReflectionHelper
 					.getPrivateValue(PokemonDropInformation.class, dropinfo, name);
-			stack.setCount(ObfuscationReflectionHelper
-					.getPrivateValue(PokemonDropInformation.class, dropinfo, name + "Max"));
+			stack.setCount(1);
 			return stack;
 		} catch (Exception e) {
 			return ItemStack.EMPTY;
 		}
 
+	}
+
+	private static int getDropItemMin(PokemonDropInformation dropinfo, String name) {
+		try {
+			return ObfuscationReflectionHelper
+					.getPrivateValue(PokemonDropInformation.class, dropinfo, name + "Min");
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+
+	private static int getDropItemMax(PokemonDropInformation dropinfo, String name) {
+		try {
+			return ObfuscationReflectionHelper
+					.getPrivateValue(PokemonDropInformation.class, dropinfo, name + "Max");
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 }
