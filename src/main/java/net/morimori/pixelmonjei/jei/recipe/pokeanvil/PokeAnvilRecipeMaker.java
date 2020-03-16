@@ -8,13 +8,11 @@ import com.pixelmonmod.pixelmon.config.PixelmonItemsPokeballs;
 import com.pixelmonmod.pixelmon.items.ItemPokeballLid;
 
 import mezz.jei.api.IJeiHelpers;
-import mezz.jei.api.recipe.IStackHelper;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class PokeAnvilRecipeMaker {
 	public static List<PokeAnvilRecipe> getPokeAnvilRecipes(IJeiHelpers helpers) {
-		IStackHelper stackHelper = helpers.getStackHelper();
 
 		List<PokeAnvilRecipe> recipes = new ArrayList<>();
 

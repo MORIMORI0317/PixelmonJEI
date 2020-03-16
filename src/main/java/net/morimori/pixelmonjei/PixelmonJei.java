@@ -17,7 +17,7 @@ public class PixelmonJei {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-
+		//MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@EventHandler
@@ -29,4 +29,11 @@ public class PixelmonJei {
 	public void posInit(FMLPostInitializationEvent event) {
 
 	}
+	/*
+		@SubscribeEvent
+		public void onClick(GuiOpenEvent e) {
+
+			if (Minecraft.getMinecraft().gameSettings.showDebugInfo)
+				System.out.println(e.getGui().getClass().toString());
+		}*/
 }

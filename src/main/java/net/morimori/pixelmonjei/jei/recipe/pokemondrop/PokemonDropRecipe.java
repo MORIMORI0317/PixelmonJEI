@@ -59,7 +59,6 @@ public class PokemonDropRecipe implements IRecipeWrapper {
 
 	@Override
 	public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
-
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(4.6f, 4.6f, 4.6f);
 		RenderHelper.drawPokemonSprite(EnumPokemon.get(name), false, minecraft, 26, 8);

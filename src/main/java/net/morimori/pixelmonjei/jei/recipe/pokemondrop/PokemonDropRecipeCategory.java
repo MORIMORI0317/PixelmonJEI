@@ -13,15 +13,13 @@ import net.morimori.pixelmonjei.jei.PixelmonJeiPlugin;
 import net.morimori.pixelmonjei.jei.ingredient.PixelmonTypes;
 
 public class PokemonDropRecipeCategory implements IRecipeCategory<PokemonDropRecipe> {
-	public static final int RECIPE_WIDTH = 160;
-	public static final int RECIPE_HEIGHT = 60;
 	private final IDrawable background;
 	private final IDrawable icon;
 	private final String localizedName;
 
 	public PokemonDropRecipeCategory(IGuiHelper guiHelper) {
 
-		ResourceLocation backgroundTexture = new ResourceLocation("pixelmonjei", "textures/gui/gui_pixelmon.png");
+		ResourceLocation backgroundTexture = new ResourceLocation(PixelmonJei.MODID, "textures/gui/gui_pixelmon_1.png");
 		background = guiHelper.drawableBuilder(backgroundTexture, 0, 54, 208, 129)
 				.build();
 		ResourceLocation iconTexture = new ResourceLocation("pixelmonjei", "textures/gui/pokemon_drop_icon.png");

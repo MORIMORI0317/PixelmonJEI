@@ -31,7 +31,7 @@ public class PokemonIngredientHelper implements IIngredientHelper<EnumPokemon> {
 
 		for (EnumPokemon pok : arg0) {
 
-			if (pok.name == arg1.name)
+			if (pok == arg1)
 				return pok;
 
 		}

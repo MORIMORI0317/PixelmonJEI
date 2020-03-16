@@ -8,6 +8,7 @@ import com.pixelmonmod.pixelmon.enums.EnumPokemon;
 import mezz.jei.api.ingredients.IIngredientRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.morimori.pixelmonjei.util.PokemonHelper;
 import net.morimori.pixelmonjei.util.RenderHelper;
@@ -34,11 +35,15 @@ public class PokemonIngredientRender implements IIngredientRenderer<EnumPokemon>
 		else
 			st.add(name);
 
+		String type = I18n.format("gui.battle.type");
+
 		if (PokemonHelper.getType1(ingredient) != null)
-			st.add(PokemonHelper.getType1(ingredient).getLocalizedName());
+			type += " " + PokemonHelper.getTypeDisplayName(PokemonHelper.getType1(ingredient));
 
 		if (PokemonHelper.getType2(ingredient) != null)
-			st.add(PokemonHelper.getType2(ingredient).getLocalizedName());
+			type += " " + PokemonHelper.getTypeDisplayName(PokemonHelper.getType2(ingredient));
+
+		st.add(type);
 
 		return st;
 

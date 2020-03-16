@@ -15,13 +15,11 @@ import net.morimori.pixelmonjei.PixelmonJei;
 import net.morimori.pixelmonjei.jei.PixelmonJeiPlugin;
 
 public class PokeAnvilRecipeCategory implements IRecipeCategory<PokeAnvilRecipe> {
-	public static final int RECIPE_WIDTH = 160;
-	public static final int RECIPE_HEIGHT = 60;
 	private final IDrawable background;
 	private final IDrawable icon;
 
 	public PokeAnvilRecipeCategory(IGuiHelper guiHelper) {
-		ResourceLocation backgroundTexture = new ResourceLocation("pixelmonjei", "textures/gui/gui_pixelmon.png");
+		ResourceLocation backgroundTexture = new ResourceLocation(PixelmonJei.MODID, "textures/gui/gui_pixelmon_1.png");
 		background = guiHelper.drawableBuilder(backgroundTexture, 0, 0, 116, 54)
 				.build();
 

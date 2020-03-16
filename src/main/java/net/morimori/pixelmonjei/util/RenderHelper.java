@@ -1,7 +1,9 @@
 package net.morimori.pixelmonjei.util;
 
 import com.pixelmonmod.pixelmon.client.gui.GuiHelper;
+import com.pixelmonmod.pixelmon.client.gui.GuiResources;
 import com.pixelmonmod.pixelmon.enums.EnumPokemon;
+import com.pixelmonmod.pixelmon.enums.EnumType;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -11,7 +13,7 @@ public class RenderHelper {
 	public static void drawPokemonSprite(int num, boolean shiny, Minecraft mc, int x, int y) {
 
 		GlStateManager.pushMatrix();
-		GuiHelper.bindPokemonSprite(num, false, mc);
+		GuiHelper.bindPokemonSprite(num, shiny, mc);
 		Gui.drawModalRectWithCustomSizedTexture(x, y, 0, 0, 16, 16, 16, 16);
 		GlStateManager.popMatrix();
 
@@ -19,5 +21,19 @@ public class RenderHelper {
 
 	public static void drawPokemonSprite(EnumPokemon poke, boolean shiny, Minecraft mc, int x, int y) {
 		drawPokemonSprite(poke.getNationalPokedexInteger(), shiny, mc, x, y);
+	}
+
+	public static void drawTypeSprite(EnumType type, Minecraft mc, int x, int y) {
+
+		GlStateManager.pushMatrix();
+		mc.getTextureManager().bindTexture(GuiResources.types);
+		float tx = type.textureX;
+		float ty = type.textureY;
+		GuiHelper.drawImageQuad(x, y, 16.0D, 16.0F, (double) (tx / 495.0F),
+				(double) (ty / 392.0F), (double) ((tx + 98.0F) / 495.0F), (double) ((ty + 98.0F) / 392.0F),
+				1);
+		//Gui.drawModalRectWithCustomSizedTexture(x, y, tx, ty, 16, 16, 16, 16);
+		GlStateManager.popMatrix();
+
 	}
 }

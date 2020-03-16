@@ -7,4 +7,9 @@ gui.jei.opt2drop=追加ドロップ2
 gui.jei.nodrop=ドロップ無し
 gui.jei.mindrop=最小 %s
 gui.jei.maxdrop=最大 %s
-
+gui.jei.attack=アタック
+gui.jei.spattack=スペシャルアタック
+gui.jei.defence=ディフェンス
+gui.jei.spdefence=スペシャルディフェンス
+gui.jei.speed=スピード
+gui.jei.category.pixelmon.kousiki=公式
