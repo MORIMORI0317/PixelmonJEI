@@ -1,6 +1,7 @@
 package net.morimori.pixelmonjei.jei;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -28,6 +29,8 @@ import net.morimori.pixelmonjei.jei.ingredient.PokemonIngredientHelper;
 import net.morimori.pixelmonjei.jei.ingredient.PokemonIngredientRender;
 import net.morimori.pixelmonjei.jei.ingredient.TypeIngredientHelper;
 import net.morimori.pixelmonjei.jei.ingredient.TypeIngredientRender;
+import net.morimori.pixelmonjei.jei.recipe.evolutions.EvolutionsRecipeCategory;
+import net.morimori.pixelmonjei.jei.recipe.evolutions.EvolutionsRecipeMaker;
 import net.morimori.pixelmonjei.jei.recipe.kousiki.KousikiRecipe;
 import net.morimori.pixelmonjei.jei.recipe.kousiki.KousikiRecipeCategory;
 import net.morimori.pixelmonjei.jei.recipe.pokeanvil.PokeAnvilRecipeCategory;
@@ -36,7 +39,6 @@ import net.morimori.pixelmonjei.jei.recipe.pokedex.PokeDexRecipeCategory;
 import net.morimori.pixelmonjei.jei.recipe.pokedex.PokeDexRecipeMaker;
 import net.morimori.pixelmonjei.jei.recipe.pokemondrop.PokemonDropRecipeCategory;
 import net.morimori.pixelmonjei.jei.recipe.pokemondrop.PokemonDropRecipeMaker;
-import scala.actors.threadpool.Arrays;
 
 @JEIPlugin
 public class PixelmonJeiPlugin implements IModPlugin {
@@ -44,6 +46,7 @@ public class PixelmonJeiPlugin implements IModPlugin {
 	public static String PokemonDrop = "pixelmon.drop";
 	public static String PokeDex = "pixelmon.dex";
 	public static String Kousiki = "pixelmon.kousiki";
+	public static String Evolutions = "pixelmon.evolutions";
 	@Nullable
 	public static IIngredientRegistry ingredientRegistry;
 
@@ -57,6 +60,8 @@ public class PixelmonJeiPlugin implements IModPlugin {
 		registry.addRecipes(PokemonDropRecipeMaker.getPokemonDropRecipes(jeiHelpers), PokemonDrop);
 
 		registry.addRecipes(PokeDexRecipeMaker.getPokeDexRecipes(jeiHelpers), PokeDex);
+
+		registry.addRecipes(EvolutionsRecipeMaker.getEvolutionsRecipes(jeiHelpers), Evolutions);
 
 		registry.addRecipeCatalyst(new ItemStack(PixelmonBlocks.anvil), PokeAnvil);
 
@@ -87,15 +92,23 @@ public class PixelmonJeiPlugin implements IModPlugin {
 		registry.addRecipeCategories(
 				new PokemonDropRecipeCategory(guiHelper));
 
+		registry.addRecipeCategories(
+				new EvolutionsRecipeCategory(guiHelper));
+
 		registry.addRecipeCategories(new KousikiRecipeCategory(guiHelper));
 	}
 
 	@Override
 	public void registerIngredients(IModIngredientRegistration registry) {
-		registry.register(PixelmonTypes.POKEMON, Arrays.asList(EnumPokemon.values()), new PokemonIngredientHelper(),
+		List<EnumPokemon> pokemons = new ArrayList<>();
+		pokemons.addAll(Arrays.asList(EnumPokemon.values()));
+		registry.register(PixelmonTypes.POKEMON, pokemons, new PokemonIngredientHelper(),
 				new PokemonIngredientRender());
 
-		registry.register(PixelmonTypes.TYPE, Arrays.asList(EnumType.values()), new TypeIngredientHelper(),
+		List<EnumType> types = new ArrayList<>();
+		types.addAll(Arrays.asList(EnumType.values()));
+
+		registry.register(PixelmonTypes.TYPE, types, new TypeIngredientHelper(),
 				new TypeIngredientRender());
 	}
 }

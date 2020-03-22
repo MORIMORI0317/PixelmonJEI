@@ -12,6 +12,7 @@ import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
+import net.morimori.pixelmonjei.PixelmonJei;
 import net.morimori.pixelmonjei.jei.ingredient.PixelmonTypes;
 import net.morimori.pixelmonjei.util.PokemonHelper;
 import net.morimori.pixelmonjei.util.RenderHelper;
@@ -54,24 +55,71 @@ public class PokeDexRecipe implements IRecipeWrapper {
 		GlStateManager.popMatrix();
 
 		GlStateManager.pushMatrix();
-		minecraft.fontRenderer.drawString(I18n.format("gui.jei.attack") + " " + PokemonHelper.getAttack(pokemon),
-				11,
-				34, Color.WHITE.getRGB());
+		if (PixelmonJei.DexCont >= 0 && PixelmonJei.DexCont <= 100) {
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.baseattack") + " " + PokemonHelper.getAttack(pokemon),
+					11, 34, Color.WHITE.getRGB());
 
-		minecraft.fontRenderer.drawString(I18n.format("gui.jei.spattack") + " " + PokemonHelper.getSpAtt(pokemon),
-				11,
-				44, Color.WHITE.getRGB());
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.basespattack") + " " + PokemonHelper.getSpAtt(pokemon),
+					11, 44, Color.WHITE.getRGB());
 
-		minecraft.fontRenderer.drawString(I18n.format("gui.jei.defence") + " " + PokemonHelper.getDefence(pokemon),
-				11,
-				54, Color.WHITE.getRGB());
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.basedefence") + " " + PokemonHelper.getDefence(pokemon),
+					11, 54, Color.WHITE.getRGB());
 
-		minecraft.fontRenderer.drawString(I18n.format("gui.jei.spdefence") + " " + PokemonHelper.getSpDef(pokemon),
-				11,
-				64, Color.WHITE.getRGB());
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.basespdefence") + " " + PokemonHelper.getSpDef(pokemon),
+					11, 64, Color.WHITE.getRGB());
 
-		minecraft.fontRenderer.drawString(I18n.format("gui.jei.speed") + " " + PokemonHelper.getSpeed(pokemon), 11,
-				74, Color.WHITE.getRGB());
+			minecraft.fontRenderer.drawString(I18n.format("gui.jei.basespeed") + " " + PokemonHelper.getSpeed(pokemon),
+					11, 74, Color.WHITE.getRGB());
+
+			minecraft.fontRenderer.drawString(I18n.format("gui.jei.basehp") + " " + PokemonHelper.getHp(pokemon), 11,
+					84, Color.WHITE.getRGB());
+
+			minecraft.fontRenderer.drawString(I18n.format("gui.jei.baseexp") + " " + PokemonHelper.getBaseExp(pokemon),
+					11, 94, Color.WHITE.getRGB());
+
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.crate") + " " + PokemonHelper.getCatchRate(pokemon),
+					11, 104, Color.WHITE.getRGB());
+		} else if (PixelmonJei.DexCont >= 101 && PixelmonJei.DexCont <= 200) {
+
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.malepercent") + " " + PokemonHelper.getMalePercent(pokemon),
+					11, 34, Color.WHITE.getRGB());
+
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.spawnlevel") + " " + PokemonHelper.getSpawnLevel(pokemon),
+					11, 44, Color.WHITE.getRGB());
+
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.spawnlevelrange") + " " + PokemonHelper.getSpawnLevelRange(pokemon),
+					11, 54, Color.WHITE.getRGB());
+
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.basefriendship") + " " + PokemonHelper.getBaseFriendship(pokemon),
+					11, 64, Color.WHITE.getRGB());
+
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.height") + " " + PokemonHelper.getHeight(pokemon),
+					11, 74, Color.WHITE.getRGB());
+
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.width") + " " + PokemonHelper.getWidth(pokemon),
+					11, 84, Color.WHITE.getRGB());
+
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.length") + " " + PokemonHelper.getWidth(pokemon),
+					11, 94, Color.WHITE.getRGB());
+
+			minecraft.fontRenderer.drawString(
+					I18n.format("gui.jei.giScale") + " " + PokemonHelper.getGiScale(pokemon),
+					11, 104, Color.WHITE.getRGB());
+
+		}
+
 		GlStateManager.popMatrix();
 
 		String deco = PokemonHelper.getPokemoDescription(pokemon);
@@ -87,8 +135,7 @@ public class PokeDexRecipe implements IRecipeWrapper {
 					Color.WHITE.getRGB());
 
 		} else
-			minecraft.fontRenderer.drawString(deco, 11, 120,
-					Color.WHITE.getRGB());
+			minecraft.fontRenderer.drawString(deco, 11, 120, Color.WHITE.getRGB());
 		GlStateManager.popMatrix();
 
 		GlStateManager.pushMatrix();
