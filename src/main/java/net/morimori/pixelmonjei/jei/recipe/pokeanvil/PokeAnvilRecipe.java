@@ -2,9 +2,9 @@ package net.morimori.pixelmonjei.jei.recipe.pokeanvil;
 
 import java.awt.Color;
 
-import com.pixelmonmod.pixelmon.config.PixelmonBlocks;
-import com.pixelmonmod.pixelmon.config.PixelmonItemsTools;
 
+import com.pixelmongenerations.core.config.PixelmonBlocks;
+import com.pixelmongenerations.core.config.PixelmonItemsTools;
 import mezz.jei.Internal;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.ingredients.IIngredients;

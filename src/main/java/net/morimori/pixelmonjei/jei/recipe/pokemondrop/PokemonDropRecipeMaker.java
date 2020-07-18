@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.pixelmonmod.pixelmon.entities.npcs.registry.DropItemRegistry;
-import com.pixelmonmod.pixelmon.entities.npcs.registry.PokemonDropInformation;
-import com.pixelmonmod.pixelmon.enums.EnumPokemon;
-
+import com.pixelmongenerations.common.entity.npcs.registry.DropItemRegistry;
+import com.pixelmongenerations.common.entity.npcs.registry.PokemonDropInformation;
+import com.pixelmongenerations.common.entity.pixelmon.stats.evolution.Evolution;
+import com.pixelmongenerations.core.enums.EnumSpecies;
 import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.recipe.IStackHelper;
 import net.minecraft.item.ItemStack;
@@ -19,7 +19,7 @@ public class PokemonDropRecipeMaker {
 
 		List<PokemonDropRecipe> recipes = new ArrayList<>();
 
-		HashMap<EnumPokemon, PokemonDropInformation> pifl = ObfuscationReflectionHelper
+		HashMap<EnumSpecies, PokemonDropInformation> pifl = ObfuscationReflectionHelper
 				.getPrivateValue(DropItemRegistry.class, null, "pokemonDrops");
 
 		ArrayList<ItemStack> tier1 = ObfuscationReflectionHelper
@@ -27,7 +27,7 @@ public class PokemonDropRecipeMaker {
 
 		//	recipes.add(new PokemonDropRecipe(tier1, "naidesu"));
 
-		for (EnumPokemon po : EnumPokemon.values()) {
+		for (EnumSpecies po : EnumSpecies.values()) {
 			try {
 
 				PokemonDropInformation pif = pifl.get(po);

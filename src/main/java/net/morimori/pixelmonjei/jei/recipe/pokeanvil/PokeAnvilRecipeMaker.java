@@ -3,10 +3,10 @@ package net.morimori.pixelmonjei.jei.recipe.pokeanvil;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pixelmonmod.pixelmon.config.PixelmonItems;
-import com.pixelmonmod.pixelmon.config.PixelmonItemsPokeballs;
-import com.pixelmonmod.pixelmon.items.ItemPokeballLid;
 
+import com.pixelmongenerations.common.item.ItemPokeballLid;
+import com.pixelmongenerations.core.config.PixelmonItems;
+import com.pixelmongenerations.core.config.PixelmonItemsPokeballs;
 import mezz.jei.api.IJeiHelpers;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;

@@ -3,8 +3,8 @@ package net.morimori.pixelmonjei.jei.recipe.pokedex;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pixelmonmod.pixelmon.enums.EnumPokemon;
 
+import com.pixelmongenerations.core.enums.EnumSpecies;
 import mezz.jei.api.IJeiHelpers;
 
 public class PokeDexRecipeMaker {
@@ -12,7 +12,7 @@ public class PokeDexRecipeMaker {
 
 		List<PokeDexRecipe> recipes = new ArrayList<>();
 
-		for (EnumPokemon poke : EnumPokemon.values()) {
+		for (EnumSpecies poke : EnumSpecies.values()) {
 			recipes.add(new PokeDexRecipe(poke));
 		}
 

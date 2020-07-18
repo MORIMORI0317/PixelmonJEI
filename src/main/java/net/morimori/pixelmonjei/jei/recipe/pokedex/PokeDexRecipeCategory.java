@@ -1,7 +1,7 @@
 package net.morimori.pixelmonjei.jei.recipe.pokedex;
 
-import com.pixelmonmod.pixelmon.config.PixelmonItems;
 
+import com.pixelmongenerations.core.config.PixelmonItems;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IRecipeLayout;

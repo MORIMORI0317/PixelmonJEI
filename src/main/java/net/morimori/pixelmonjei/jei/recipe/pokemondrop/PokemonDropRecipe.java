@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pixelmonmod.pixelmon.enums.EnumPokemon;
 
+import com.pixelmongenerations.core.enums.EnumSpecies;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
@@ -61,7 +61,7 @@ public class PokemonDropRecipe implements IRecipeWrapper {
 	public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
 		GlStateManager.pushMatrix();
 		GlStateManager.scale(4.6f, 4.6f, 4.6f);
-		RenderHelper.drawPokemonSprite(EnumPokemon.get(name), false, minecraft, 26, 8);
+		RenderHelper.drawPokemonSprite(EnumSpecies.get(name), false, minecraft, 26, 8);
 		GlStateManager.popMatrix();
 
 		minecraft.fontRenderer.drawString(PokemonHelper.getPokemonDisplayName(name), 30, 15,
@@ -125,7 +125,7 @@ public class PokemonDropRecipe implements IRecipeWrapper {
 		items.add(option2);
 
 		ingredients.setOutputs(VanillaTypes.ITEM, items);
-		ingredients.setInput(PixelmonTypes.POKEMON, EnumPokemon.get(name));
+		ingredients.setInput(PixelmonTypes.POKEMON, EnumSpecies.get(name));
 	}
 
 }
